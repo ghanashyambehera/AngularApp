@@ -1,0 +1,51 @@
+<div>
+  <th>{{title}}</th>
+  <h1 *ngIf="show == 'name'; then ifCondition else elseCondition"></h1>
+
+  <ng-template #ifCondition>
+    <h1> Ghanashyam</h1></ng-template>
+
+  <ng-template #elseCondition>
+    <h1> behera</h1>
+  </ng-template>
+  <p>Multi condition check</p>
+  <ng-template [ngIf] = "color==='red'">
+    <h1 style="color: red"> Red Color </h1>
+  </ng-template>
+
+  <ng-template [ngIf] = "color==='green'">
+    <h1 style="color: green"> Green Color </h1>
+  </ng-template>
+
+  <ng-template [ngIf] = "color==='black'">
+    <h1 style="color: black"> Black Color </h1>
+  </ng-template>
+
+  <div [ngSwitch] = "colors">
+    <h1 *ngSwitchCase="'red'" style="color: red">Red color</h1>
+    <h1 *ngSwitchCase="'green'" style="color: green">Green color</h1>
+    <h1 *ngSwitchCase="'aqua'" style="color: aqua">aqua color</h1>
+    <h1 *ngSwitchCase="'blue'" style="color: blue">blue color</h1>
+    <h1 *ngSwitchCase="'chocolate'" style="color: chocolate">chocolate color</h1>
+    <h1 *ngSwitchDefault style="color: black">UnKnown color</h1>
+  </div>
+
+  <h3 *ngFor="let item of users"> {{item}} </h3>
+  <ul *ngFor="let item of usersDetails">
+    <li>{{item.id}}</li>
+    <li>{{item.name}}</li>
+    <li>{{item.email}}</li>
+    <li>{{item.address}}</li>
+    <ul *ngFor="let social of item.social">
+      <li>{{social}}</li>
+    </ul> 
+    <li>---------------------------------</li>   
+  </ul>
+
+
+  <h1 [style.color]="colorChange" [style.backgroundColor]="bgColor"> Change colors </h1>
+  <button (click)="updateColors()">Update colors</button>
+
+
+
+</div>
